@@ -1,0 +1,70 @@
+/* GLOBAL */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-x: hidden;
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+
+.section-digit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  color: #fff;
+  position: relative;
+}
+.digit {
+  display: flex;
+  pointer-events: none;
+  &__item {
+  font-size: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  overflow: hidden;
+  }
+  &__val {
+    height: inherit;
+    overflow: hidden;
+  }
+  @media (min-width: 601px) {
+    --size: 11.666vw;
+  }
+  @media (max-width: 600px) {
+    --size: 21.333vw;
+  }
+}
+
+/* LENIS CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
